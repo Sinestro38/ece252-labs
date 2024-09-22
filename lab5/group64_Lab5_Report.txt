@@ -1,0 +1,108 @@
+========================
+Lab 5 marking report
+
+======= PART 1 =======
+>> Running make
+Test Passed: Compiled from makefile +0.5
+
+======= PART 2 =======
+
+-- case 2.1 --
+>> Running: ./findpng3 -t 20 -m 20 http://ece252-1.uwaterloo.ca/lab4
+findpng3 execution time: 2.197097 seconds
+Found: 20 pngs
+Test Passed: Running with -t 20 -m 20 collected 20 unique and valid pngs +1
+
+-- case 2.2 --
+>> Running: ./findpng3 -t 20 -m 100 -v log.txt http://ece252-1.uwaterloo.ca/lab4
+findpng3 execution time: 4.132237 seconds
+Found: 50 pngs
+Confirming that pngs found are valid
+Test Passed: Running with -t 20 -m 100 collected 50 unique, valid pngs +1
+
+-- case 2.3 --
+Found: 348 log entries
+Test Passed: With -t 20 -m 100 visited >= 347 urls +1
+
+======= PART 3 =======
+
+-- case 3.1 --
+>> Running: ./findpng3 -t 14 -m 20 http://ece252-1.uwaterloo.ca/lab4
+findpng3 execution time: 2.745281 seconds
+Thread count: 1
+Test Passed: Correctly spawns only 1 thread with -t in [5,20] +1
+
+======= PART 4 =======
+
+-- case 4.1 --
+Test Passed: Student used cURL multi handle +1
+
+======= PART 5 =======
+Running 5 x 3 test cases for timings test
+Executions are:
+>> ./findpng3 -t 1 -m 20
+>> ./findpng3 -t 10 -m 20
+>> ./findpng3 -t 20 -m 20
+Beginning...
+1 Worker
+ avg (5 runs):29.92
+10 Workers:
+ avg (5 runs):3.79
+20 Workers:
+ avg (5 runs):2.15
+
+-- case 5.1 --
+Test Passed: Running with -t20 was >= 16x faster than -t1 (or took <= 2.4s) +1
+
+-- case 5.2 --
+Test Passed: Running with -t10 was >= 8x faster than -t1 (or took <= 4.8s) +1
+
+======= PART 6 =======
+Running 3 test cases for results test
+>> Running: ./findpng3 -t 20 -m 3 -v log.txt http://ece252-1.uwaterloo.ca/lab4
+findpng3 execution time: 0.640701 seconds
+>> Running: ./findpng3 -t 20 -m 50 -v log.txt http://ece252-1.uwaterloo.ca/lab4
+findpng3 execution time: 4.262351 seconds
+>> Running: ./findpng3 -t 20 -m 100 -v log.txt http://ece252-1.uwaterloo.ca/lab4
+findpng3 execution time: 4.258603 seconds
+
+-- case 6.1 --
+Found pngs: 3 for -m=3, 50 for -m=50, and 50 for -m=100
+Test Passed: Number of pngs is correct in all run cases +1
+
+-- case 6.2 --
+Found log entries: 50 for -m=3, 348 for -m=50, and 348 for -m=100
+Test Passed: Number of URLs visited for -m 50 <= -m 100 +1
+
+-- case 6.3 --
+Test Passed: Run time for -m 100 is <= 2X of -m 50 +1
+
+======= PART 7 =======
+
+-- case 7.1 --
+Running valgrind with arguments -t 10 -m 50
+Test Passed: Did not find definitely lost bytes +0.5
+
+===== SUMMARY =====
+
+Tests Passed:
+---------------
+- Compiled from makefile +0.5
+- Running with -t 20 -m 20 collected 20 unique and valid pngs +1
+- Running with -t 20 -m 100 collected 50 unique, valid pngs +1
+- With -t 20 -m 100 visited >= 347 urls +1
+- Correctly spawns only 1 thread with -t in [5,20] +1
+- Student used cURL multi handle +1
+- Running with -t20 was >= 16x faster than -t1 (or took <= 2.4s) +1
+- Running with -t10 was >= 8x faster than -t1 (or took <= 4.8s) +1
+- Number of pngs is correct in all run cases +1
+- Number of URLs visited for -m 50 <= -m 100 +1
+- Run time for -m 100 is <= 2X of -m 50 +1
+- Did not find definitely lost bytes +0.5
+
+Tests Failed:
+---------------
+########### Score ###########
+Total lab 5 score: 11.0/11
+
+#### Additional Comments ####
